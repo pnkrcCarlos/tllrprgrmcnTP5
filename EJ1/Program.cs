@@ -10,12 +10,38 @@ namespace EJ1
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            using (var db = new EJ1Context("public"))
+            {
+                //Alta
+                Persona mPersona = new Persona
+                {
+                    PersonaId = 1,
+                    Nombre = "Juan",
+                    Apellido = "Sánchez",
+                    Telefonos = new List<Telefono>
+                    {
+                        new Telefono
+                        {
+                            TelefonoId = 1,
+                            Numero = "555-123456",
+                            Tipo = "Celular"
+                        }
+                    }
+                };
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+                db.Personas.Add(mPersona);
+                db.SaveChanges();
+
+                //busqueda
+                foreach (var item in db.Personas)
+                {
+                    Console.WriteLine("Persona encontrada Nombre: {0}, Apellido: {1}, IdPersona: {2}",
+                        item.Nombre,
+                        item.Apellido,
+                        item.PersonaId);
+                }
+                Console.ReadKey();
+            }
         }
     }
 }
