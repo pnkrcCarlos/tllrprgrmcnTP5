@@ -10,7 +10,7 @@ namespace EJ1
     {
         static void Main(string[] args)
         {
-            using (var db = new EJ1Context("public"))
+            using (var db = new EJ1Context())
             {
                 //Alta
                 Persona mPersona = new Persona

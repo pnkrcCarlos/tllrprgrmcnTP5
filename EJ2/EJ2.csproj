@@ -33,19 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Npgsql, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
-    </Reference>
-    <Reference Include="Npgsql.EntityFramework, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Npgsql.EntityFramework.2.2.7\lib\net45\Npgsql.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -67,10 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Cuenta.cs" />
-    <Compile Include="EJ2Context.cs" />
-    <Compile Include="Movimiento.cs" />
+    <Compile Include="AccountManager\Bank.cs" />
+    <Compile Include="AccountManager\DAL\EntityFramework\AccountManagerDbContext.cs" />
+    <Compile Include="AccountManager\DAL\EntityFramework\AccountRepository.cs" />
+    <Compile Include="AccountManager\DAL\EntityFramework\ClientRepository.cs" />
+    <Compile Include="AccountManager\DAL\EntityFramework\Repository.cs" />
+    <Compile Include="AccountManager\DAL\EntityFramework\UnitOfWork.cs" />
+    <Compile Include="AccountManager\DAL\IAccountRepository.cs" />
+    <Compile Include="AccountManager\DAL\IClientRepository.cs" />
+    <Compile Include="AccountManager\DAL\IRepository.cs" />
+    <Compile Include="AccountManager\DAL\IUnitOfWork.cs" />
+    <Compile Include="AccountManager\Domain\Account.cs" />
+    <Compile Include="AccountManager\Domain\AccountMovement.cs" />
+    <Compile Include="AccountManager\Domain\Client.cs" />
+    <Compile Include="AccountManager\Domain\Document.cs" />
+    <Compile Include="AccountManager\Domain\DocumentType.cs" />
+    <Compile Include="AccountManager\IO\AccountDTO.cs" />
+    <Compile Include="AccountManager\IO\AccountMovementDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,5 +82,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
